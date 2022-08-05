@@ -1,6 +1,6 @@
 start = [1 1];
 count = [100 100];
-angleArray = h5read("D:\JingALing\Wormpose\Long term tracking data\N2_on_food\N2 on food L_2010_04_20__09_52_38___4___1\processed_results.h5",'/raw/theta',start, count);
+angleArray = h5read("file_root_name.h5",'dataset_name',start, count);
 numEigWorms = 4;
 verbose = 1;
 
