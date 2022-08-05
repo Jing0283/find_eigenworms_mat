@@ -28,8 +28,7 @@ projectedAmps = angleArray*(eigenWorms(1:numEigWorms,:)');
 if verbose 
     % plot eigenvalues to show fraction of variance captured
     figure
-    plot(cumsum(eVals/sum(eVals)),'o','markeredgecolor',[1 0.5 0.1],...
-        'markerfacecolor', [1 0.5 0.1],'markersize',8)
+    plot(cumsum(eVals/sum(eVals)),'o','markeredgecolor',[1 0.5 0.1],'markerfacecolor', [1 0.5 0.1],'markersize',8)
     %adjust font and font size
     set(gca, 'FontName', 'Helvetica', 'FontSize', 16);
 
