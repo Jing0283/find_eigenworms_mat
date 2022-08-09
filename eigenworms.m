@@ -1,5 +1,5 @@
 start = [1 1];
-count = [100 100];
+count = [100 10000];
 angleArray = h5read("file_root_name.h5",'dataset_name',start, count);
 numEigWorms = 4;
 verbose = 1;
