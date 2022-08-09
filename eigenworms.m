@@ -11,7 +11,8 @@ if isempty(~isnan(angleArray))
 end
 
 % only use non-NaN frames for calculating the covariance matrix
-angleArray = angleArray(:,~all(isnan(angleArray)));
+angleArray_Nanout = angleArray(:,~all(isnan(angleArray)));
+[angleArray_Nanout1, PS] = mapminmax(angleArray_Nanout') % Deep Learning Toolkit required
 covarianceMat = cov(angleArray);
 
 %get the eigenvectors and eigenvalues of the covaraince matrix
@@ -23,7 +24,7 @@ eVals = sort(diag(eVals),'descend');
 %keep the numEigWorms dimensions that capture most of the variance 
 eigenWorms = M(:,end:-1:end - numEigWorms + 1)';
 eigenVals = eVals(1:numEigWorms);
-projectedAmps = angleArray*(eigenWorms(1:numEigWorms,:)');
+%projectedAmps = angleArray*(eigenWorms(1:numEigWorms,:)');
 
 if verbose 
     % plot eigenvalues to show fraction of variance captured
