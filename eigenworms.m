@@ -12,8 +12,10 @@ end
 
 % only use non-NaN frames for calculating the covariance matrix
 angleArray_Nanout = angleArray(:,~all(isnan(angleArray)));
-[angleArray_Nanout1, PS] = mapminmax(angleArray_Nanout') % Deep Learning Toolkit required
-covarianceMat = cov(angleArray);
+[angleArray_Nanout1, PS] = mapminmax(angleArray_Nanout') % Deep Learning Toolkit required % minmax normalisation
+%or
+%angleArray_Nanout1 = zscore(angleArray_Nanout',[ ],1); % Statistics toolkit required % z-score normalisation
+covarianceMat = cov(angleArray_Nanout1);
 
 %get the eigenvectors and eigenvalues of the covaraince matrix
 [M, eVals] = eig(covarianceMat);
