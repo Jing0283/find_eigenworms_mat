@@ -45,9 +45,10 @@ if verbose
     end
     
     %plot the covariance matrix
-    figure
+    figure;clf
+    caxis[-1,1]
     imagesc(covarianceMat)
-    set(gca,'YDir','normal')
+    set(gca,'YDir','reverse')
     %adjust font and font size
     set(gca, 'FontName', 'Helvetica', 'FontSize', 16);
 end
